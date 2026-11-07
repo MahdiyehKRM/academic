@@ -69,8 +69,7 @@
             <span class="text-cyberBlue font-bold tracking-wider text-sm md:text-base">Computational Neuroscience Lab</span>
         </div>
         <nav class="flex gap-6 text-sm md:text-base font-medium">
-            <!-- <a href="#about" class="hover:text-cyberBlue transition">About</a> -->
-            <!-- <a href="#research" class="hover:text-cyberBlue transition">Thesis & Research</a> -->
+            <!-- Navigation links -->
         </nav>
     </header>
 
@@ -78,15 +77,15 @@
     <main class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-3 gap-8 my-auto">
         
         <!-- Left Column: Profile -->
-        <div class="glass-card rounded-2xl p-6 flex flex-col items-center text-center lg:col-span-1">
+        <div class="glass-card rounded-2xl p-6 flex flex-col items-center text-center lg:col-span-1 h-fit">
             <div class="relative w-32 h-32 mb-4">
-                <img src="profile.jpg" alt="Mahdieh Karimi" class="w-full h-full object-cover rounded-full border-2 border-cyberBlue glow-border" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400'">
+                <img src="profile.jpg" alt="Mahdieh Karimi" class="w-full h-full object-cover rounded-full border-2 border-cyberBlue glow-border" onerror="this.src='profile.webp'">
                 <div class="absolute inset-0 rounded-full border border-pink-500 animate-pulse pointer-events-none"></div>
             </div>
             <h1 class="text-2xl font-black text-white mb-1">Mahdieh Karimi</h1>
             <p class="text-cyberBlue text-sm font-semibold mb-3">AI & Neuroimaging Researcher</p>
             <p class="text-slate-300 text-xs leading-relaxed mb-5">
-                M.Sc. Student in Computer Engineering at Isfahan University of Technology (IUT). Focused on Computational Neuroscience.
+                M.Sc. Student in Computer Engineering at Isfahan University of Technology (IUT). Focused on Computational Neuroscience & State Space Models.
             </p>
             
             <!-- Exact Social/Contact Links -->
@@ -112,13 +111,91 @@
 
             <!-- Thesis Section -->
             <section id="research" class="glass-card rounded-2xl p-6">
-                <h2 class="text-xl font-bold text-cyberBlue mb-3 flex items-center gap-2">
-                    <span class="w-2 h-6 bg-cyberBlue rounded-full"></span>
-                    M.Sc. Thesis Research
-                </h2>
-                <p class="text-slate-300 text-sm leading-relaxed">
-                    Due to the highly massive and high-dimensional nature of fMRI data, achieving low computational time complexity is a critical challenge. My master's thesis focuses on optimizing and tailoring advanced models with superior time complexity order to efficiently process large-scale brain connectome data and capture intricate spatial-temporal dynamics.
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-bold text-cyberBlue flex items-center gap-2">
+                        <span class="w-2 h-6 bg-cyberBlue rounded-full"></span>
+                        M.Sc. Thesis Research
+                    </h2>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-cyberBlue/10 border border-cyberBlue/30 text-cyberBlue font-mono">Proposal Architecture</span>
+                </div>
+
+                <h3 class="text-base font-semibold text-white mb-2">
+                    Structure-Aware Random Walk Mamba for Dynamic fMRI Graph Modeling
+                </h3>
+                
+                <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                    High-dimensional dynamic Functional Magnetic Resonance Imaging (fMRI) reveals complex, time-varying brain network interactions. However, existing methodologies encounter severe computational and structural hurdles:
                 </p>
+
+                <!-- Key Challenges Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-5 text-xs">
+                    <div class="bg-black/30 border border-slate-700/50 rounded-xl p-3">
+                        <div class="text-cyberBlue font-semibold mb-1">Computational Bottlenecks</div>
+                        <p class="text-slate-400">Transformers incur quadratic time complexity <span class="font-mono text-pink-400">O(N²)</span>, while Graph Neural Networks (GNNs) suffer from massive message-passing overhead <span class="font-mono text-pink-400">O(E)</span> over dense 4D dynamic connectome matrices.</p>
+                    </div>
+                    <div class="bg-black/30 border border-slate-700/50 rounded-xl p-3">
+                        <div class="text-pink-400 font-semibold mb-1">1D Serialization Distortion</div>
+                        <p class="text-slate-400">Linear state-space models like FST-Mamba force non-Euclidean organic brain graphs into rigid row-by-row sequences, artificially severing densely connected functional clusters and inducing structural bias.</p>
+                    </div>
+                </div>
+
+                <!-- Proposed Architecture Infographic -->
+                <div class="mb-5">
+                    <div class="group relative rounded-xl overflow-hidden border border-cyberBlue/30 hover:border-cyberBlue transition bg-black/40">
+                        <img src="infographic.png" alt="Proposed Structure-Aware Random Walk Mamba Pipeline" class="w-full h-auto object-cover transform group-hover:scale-[1.01] transition duration-300">
+                        <div class="p-2.5 bg-black/60 backdrop-blur-sm border-t border-cyberBlue/20 text-center">
+                            <span class="text-xs text-slate-300 font-mono tracking-wide">
+                                Figure: Dynamic Graph Construction → Structure-Guided Random Walk Traversal → Linear SSM Ingestion O(N)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proposed Pipeline Steps -->
+                <div class="space-y-3 text-xs text-slate-300 mb-5">
+                    <div class="flex items-start gap-2.5">
+                        <span class="w-5 h-5 rounded-full bg-cyberBlue/20 text-cyberBlue border border-cyberBlue/40 flex items-center justify-center shrink-0 font-bold mt-0.5">1</span>
+                        <div>
+                            <strong class="text-white">Dynamic Graph Construction:</strong> Continuous fMRI BOLD signals across 53 parcellated Regions of Interest (ROIs) are modeled into dynamic functional network connectivity (dFNC) weighted graphs.
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                        <span class="w-5 h-5 rounded-full bg-cyberBlue/20 text-cyberBlue border border-cyberBlue/40 flex items-center justify-center shrink-0 font-bold mt-0.5">2</span>
+                        <div>
+                            <strong class="text-white">Structure-Aware Random Walk Traversal:</strong> Guided organic walkers transition proportionally to correlation weights across functional clusters, preserving intrinsic topological geometries without rigid row-flattening.
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                        <span class="w-5 h-5 rounded-full bg-cyberBlue/20 text-cyberBlue border border-cyberBlue/40 flex items-center justify-center shrink-0 font-bold mt-0.5">3</span>
+                        <div>
+                            <strong class="text-white">Linear SSM Ingestion:</strong> Preserved structural paths are fed into selective Mamba blocks, achieving optimal linear <span class="font-mono text-cyberBlue font-bold">O(N)</span> computational scaling while retaining long-range spatiotemporal dependencies.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dual Evaluation Scheme -->
+                <div class="border-t border-cyberBlue/20 pt-4">
+                    <h4 class="text-xs font-semibold text-white uppercase tracking-wider mb-2">Experimental Evaluation Paradigm:</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                        <div class="p-2.5 rounded-lg bg-cyberBlue/5 border border-cyberBlue/20">
+                            <span class="text-cyberBlue font-semibold block mb-0.5">1. Cognitive Task Classification</span>
+                            <span class="text-slate-400">Benchmarking motor, language, and memory states on the Human Connectome Project (HCP) dataset via <strong>ACC</strong> and <strong>AUC</strong>.</span>
+                        </div>
+                        <div class="p-2.5 rounded-lg bg-pink-500/5 border border-pink-500/20">
+                            <span class="text-pink-400 font-semibold block mb-0.5">2. Demographic Trait Regression</span>
+                            <span class="text-slate-400">Predicting continuous phenotypic attributes (age and gender traits) from dFNC dynamics evaluated by <strong>MAE</strong> and <strong>MSE</strong>.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-2 mt-5">
+                    <span class="px-2.5 py-1 rounded-md bg-cyberBlue/10 border border-cyberBlue/30 text-cyberBlue text-[11px] font-medium">Dynamic fMRI</span>
+                    <span class="px-2.5 py-1 rounded-md bg-cyberBlue/10 border border-cyberBlue/30 text-cyberBlue text-[11px] font-medium">Mamba / SSMs</span>
+                    <span class="px-2.5 py-1 rounded-md bg-cyberBlue/10 border border-cyberBlue/30 text-cyberBlue text-[11px] font-medium">Random Walk</span>
+                    <span class="px-2.5 py-1 rounded-md bg-cyberBlue/10 border border-cyberBlue/30 text-cyberBlue text-[11px] font-medium">HCP Dataset</span>
+                    <span class="px-2.5 py-1 rounded-md bg-cyberBlue/10 border border-cyberBlue/30 text-cyberBlue text-[11px] font-medium">Brain Connectomics</span>
+                </div>
             </section>
 
         </div>
@@ -171,7 +248,6 @@
             let ry = 6.5 + Math.random() * 1.2;
             let rz = 9.0 + Math.random() * 2.0;
 
-
             let x = rx * Math.sin(v) * Math.cos(u);
             let y = ry * Math.cos(v) + 0.5;
             let z = rz * Math.sin(v) * Math.sin(u);
@@ -207,7 +283,7 @@
         const brainParticles = new THREE.Points(brainGeometry, brainMaterial);
         brainGroup.add(brainParticles);
 
-        const signalCount = 55; // Updated to 55 active signals
+        const signalCount = 55;
         const activeSignals = [];
 
         for (let i = 0; i < signalCount; i++) {
