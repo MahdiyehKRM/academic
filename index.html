@@ -139,7 +139,7 @@
                     </div>
                 </div>
 
-                <!-- Proposed Architecture Infographic (All Blue Theme) -->
+                <!-- Proposed Architecture Infographic -->
                 <div class="mb-5">
                     <div class="group relative rounded-xl overflow-hidden border border-cyberBlue/30 hover:border-cyberBlue transition bg-black/40">
                         <img src="infographic.png" alt="Proposed Structure-Aware Random Walk Mamba Pipeline" class="w-full h-auto object-cover transform group-hover:scale-[1.01] transition duration-300">
@@ -173,7 +173,7 @@
                     </div>
                 </div>
 
-                <!-- Dual Evaluation Scheme (All Blue/Cyan Monochromatic) -->
+                <!-- Dual Evaluation Scheme -->
                 <div class="border-t border-cyberBlue/20 pt-4">
                     <h4 class="text-xs font-semibold text-white uppercase tracking-wider mb-2">Experimental Evaluation Paradigm:</h4>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
@@ -267,12 +267,13 @@
             brainNodes.push(new THREE.Vector3(x, y, z));
         }
 
+        // Brain Structure (Static Network Nodes - Cyber Blue)
         const brainGeometry = new THREE.BufferGeometry();
         brainGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
         const brainMaterial = new THREE.PointsMaterial({
             size: 0.5,
-            color: 0x00f2ff,
+            color: 0x00f2ff, // Neon Cyan/Blue
             map: getCircularTexture(),
             transparent: true,
             opacity: 0.7,
@@ -283,7 +284,8 @@
         const brainParticles = new THREE.Points(brainGeometry, brainMaterial);
         brainGroup.add(brainParticles);
 
-        const signalCount = 55;
+        // Neural Dynamic Signals (Red Electric Pulses)
+        const signalCount = 60;
         const activeSignals = [];
 
         for (let i = 0; i < signalCount; i++) {
@@ -301,7 +303,7 @@
                 from: brainNodes[fromIdx],
                 to: brainNodes[toIdx],
                 progress: 0,
-                speed: 0.0025 + Math.random() * 0.0045
+                speed: 0.003 + Math.random() * 0.005
             });
         }
 
@@ -309,12 +311,13 @@
         const signalPositions = new Float32Array(signalCount * 3);
         signalGeometry.setAttribute('position', new THREE.BufferAttribute(signalPositions, 3));
 
+        // Pulsing Signals set to Vibrant Neon Red
         const signalMaterial = new THREE.PointsMaterial({
-            size: 0.7,
-            color: 0x00f2ff,
+            size: 0.85,
+            color: 0xff2a55, // Vivid Neon Red / Crimson Electric Pulse
             map: getCircularTexture(),
             transparent: true,
-            opacity: 0.95,
+            opacity: 1.0,
             depthWrite: false,
             blending: THREE.AdditiveBlending
         });
